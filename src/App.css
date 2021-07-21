@@ -98,3 +98,17 @@ ul li .row i:hover{
     transform: rotate(15deg) skew(25deg) scale(0.5);
   }
 }
+h2{
+  text-align: center;
+  font-size: 2em;
+  color: teal;
+  margin: 50px 0;
+}
+ul li input{
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 70%;
+  box-shadow: -2px -2px 2px #fff7,
+ 2px 2px 2px #0002;
+}

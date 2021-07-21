@@ -3,7 +3,7 @@ import ListItem from '../ListItem/ListItem'
 
 export default class List extends Component {
   render() {
-    const { todo, onDelete, onEdit } = this.props;
+    const { todo, onDelete, onEdit, count } = this.props;
     return (
       <>
         <ul>
@@ -21,6 +21,7 @@ export default class List extends Component {
             );
           })}
         </ul>
+        <h2>You Have {count} Things To Do</h2>
       </>
     );
   }

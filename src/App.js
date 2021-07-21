@@ -8,6 +8,15 @@ export default class App extends Component {
     data: [],
   };
 
+  componentDidUpdate() {
+    localStorage.setItem('dataStore', JSON.stringify(this.state.data))
+  }
+  componentDidMount() {
+    const dataStore = JSON.parse(localStorage.getItem('dataStore'));
+    if (dataStore !== null) {
+    this.setState({ data: dataStore });
+    }
+  }
   handleSubmit = (newVal) => {
     this.setState({ data: [...this.state.data, newVal] });
   };
@@ -34,7 +43,16 @@ export default class App extends Component {
       <div className="app">
         <Form onSubmit={this.handleSubmit} />
         <h1 title="Todo List">Todo List</h1>
-        <List todo={data} onEdit={this.handleOnEdit} onDelete={this.handleRemove} />
+        {data.length === 0 ? (
+          <h2>Nothing To Do</h2>
+        ) : (
+          <List
+            todo={data}
+            onEdit={this.handleOnEdit}
+              onDelete={this.handleRemove}
+              count={data.length}
+          />
+        )}
       </div>
     );
   }
